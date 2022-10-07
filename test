@@ -1,0 +1,32 @@
+_G.Clicked = true
+_G.RemoteClick = true
+_G.UpdateData = true
+_G.Sell = true
+
+spawn(function()
+ while _G.Clicked == true do
+   game:GetService("ReplicatedStorage").Events.Clicked:FireServer()
+   wait()
+ end
+end)
+
+spawn(function()
+ while _G.RemoteClick == true do
+   game:GetService("Players").LocalPlayer.Character.Starter.RemoteClick:FireServer()
+   wait()
+ end
+end)
+
+spawn(function()
+ while _G.UpdateData == true do
+   game:GetService("ReplicatedStorage").Events.UpdateData:InvokeServer()
+   wait()
+ end
+end)
+
+spawn(function()
+ while _G.Sell == true do
+   game:GetService("ReplicatedStorage").Events.Sell:FireServer()
+   wait()
+ end
+end)
